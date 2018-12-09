@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
   res.json({
     uptime: process.uptime(),
     environment: env,
-    headers: request.headers,
+    headers: req.headers,
     message: 'Welcome!'
   })
 });
@@ -34,7 +34,7 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, (err) => {
-  console.log(`server is listening on ${port}`);
+  console.log(`Server is listening on ${port}`);
 });
 
 module.exports = app;
