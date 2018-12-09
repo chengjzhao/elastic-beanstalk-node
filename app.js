@@ -3,8 +3,13 @@ const http = require('http');
 const port = process.env.PORT || 3000;
 
 const requestHandler = (request, response) => {
-  console.log(request.url);
-  response.end('Welcome!');
+  console.log(new Date().toString(), request.url);
+  const output = {
+    uptime: process.uptime(),
+    message: 'Welcome!'
+  };
+  response.writeHead(200, {'Content-Type': 'application/json'});
+  response.end(JSON.stringify(output));
 };
 
 const server = http.createServer(requestHandler);
