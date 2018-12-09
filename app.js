@@ -33,10 +33,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(port, () => {
-  if (err) {
-    return console.log('something bad happened', err);
-  }
+app.listen(port, (err) => {
   console.log(`server is listening on ${port}`);
 });
 
