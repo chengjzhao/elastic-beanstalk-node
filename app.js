@@ -1,24 +1,43 @@
 'use strict';
-const http = require('http');
+const express = require('express');
+const env = process.env.NODE_ENV || 'development';
 const port = process.env.PORT || 3000;
 
-const requestHandler = (request, response) => {
-  console.log(new Date().toString(), request.url);
-  const output = {
+const app = express();
+
+app.get('/', (req, res) => {
+  res.json({
     uptime: process.uptime(),
-    environment: process.env.NODE_ENV,
+    environment: env,
     headers: request.headers,
     message: 'Welcome!'
-  };
-  response.writeHead(200, {'Content-Type': 'application/json'});
-  response.end(JSON.stringify(output));
-};
+  })
+});
 
-const server = http.createServer(requestHandler);
+app.get('/health', (req, res) => {
+  res.json({
+    health: 'ok'
+  })
+});
 
-server.listen(port, (err) => {
+app.use((req, res, next) => {
+  const err = new Error('Resource not found.');
+  err.status = 404;
+  next(err);
+});
+
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.json({
+    error: err
+  });
+});
+
+app.listen(port, () => {
   if (err) {
     return console.log('something bad happened', err);
   }
   console.log(`server is listening on ${port}`);
 });
+
+module.exports = app;

@@ -1,0 +1,27 @@
+{
+  "name": "elastic-beanstalk-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "supertest": "^3.3.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medix-henry/elastic-beanstalk-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/medix-henry/elastic-beanstalk-node/issues"
+  },
+  "homepage": "https://github.com/medix-henry/elastic-beanstalk-node#readme"
+}
