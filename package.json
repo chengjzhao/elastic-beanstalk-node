@@ -8,10 +8,13 @@
   },
   "devDependencies": {
     "mocha": "^5.2.0",
+    "mocha-junit-reporter": "^1.18.0",
     "supertest": "^3.3.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha ./tests/home.js"
+    "test": "./node_modules/.bin/mocha ./tests/**",
+    "test-jenkins": "MOCHA_FILE=./jenkins-test-results.xml ./node_modules/.bin/mocha ./tests/** --reporter mocha-junit-reporter"
+
   },
   "repository": {
     "type": "git",
