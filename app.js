@@ -7,6 +7,7 @@ const requestHandler = (request, response) => {
   const output = {
     uptime: process.uptime(),
     environment: process.env.NODE_ENV,
+    env: process.env,
     message: 'Welcome!'
   };
   response.writeHead(200, {'Content-Type': 'application/json'});
