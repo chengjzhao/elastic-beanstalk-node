@@ -11,7 +11,7 @@
     "supertest": "^3.3.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/.bin/mocha ./tests/home.js"
   },
   "repository": {
     "type": "git",
