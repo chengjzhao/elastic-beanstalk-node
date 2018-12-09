@@ -1,1 +1,1 @@
-# elastic-beanstalk-node
+[![Build Status](http://ec2-54-218-76-216.us-west-2.compute.amazonaws.com/job/elastic-beanstalk-node/badge/icon)](http://ec2-54-218-76-216.us-west-2.compute.amazonaws.com/job/elastic-beanstalk-node/)
