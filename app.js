@@ -3,13 +3,12 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
-const env = process.env.NODE_ENV || 'development';
 const app = express();
 
 app.get('/', (req, res) => {
   res.json({
     uptime: process.uptime(),
-    environment: env,
+    environment: process.env.NODE_ENV,
     headers: req.headers,
     message: 'Welcome!'
   })
@@ -31,9 +30,15 @@ app.get('/build', async (req, res) => {
       throw Error(`Incorrect file format.`);
     }
     const data = await promisify(fs.readFile)(filePath, 'utf8');
-    const variabes = JSON.parse(data);
+    const env = JSON.parse(data);
     res.json({
-      data: variabes
+      data: {
+        BUILD_ID: env.BUILD_ID,
+        BUILD_NUMBER: env.BUILD_NUMBER,
+        JOB_NAME: env.JOB_NAME,
+        GIT_BRANCH: env.GIT_BRANCH,
+        GIT_COMMIT: env.GIT_COMMIT
+      }
     });
   } catch (error) {
     next(error);
@@ -51,7 +56,9 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.json({
-    error: err
+    error: {
+      message: error.message
+    }
   });
 });
 
