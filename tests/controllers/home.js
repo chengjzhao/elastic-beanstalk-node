@@ -41,7 +41,7 @@ describe('GET /', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.headers).to.be.an('object');
         expect(res.body.uptime).to.be.a('number');
-        expect(res.body.environment).to.be.a('string');
+        expect(res.body.environment).to.be.undefined;
         expect(res.body.message).to.be.a('string');
         expect(res.body.version).to.be.undefined;
       })
