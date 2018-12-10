@@ -3,6 +3,9 @@ const expect = require('chai').expect;
 const request = require('supertest');
 const app = require('../../app');
 
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('ENV', process.env)
+
 /**
  * https://mochajs.org/
  * https://www.chaijs.com/
