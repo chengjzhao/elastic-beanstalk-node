@@ -15,7 +15,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "test": "./node_modules/.bin/mocha ./tests/**",
-    "test-jenkins": "MOCHA_FILE=./jenkins-test-results.xml ./node_modules/.bin/mocha ./tests/** --reporter mocha-junit-reporter"
+    "test-jenkins": "MOCHA_FILE=./tmp/jenkins-test-results.xml ./node_modules/.bin/mocha ./tests/** --reporter mocha-junit-reporter"
   },
   "repository": {
     "type": "git",
