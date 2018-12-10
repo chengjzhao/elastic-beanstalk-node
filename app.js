@@ -3,7 +3,16 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
+const logger = require('./services/logger');
 const app = express();
+
+app.use(require('morgan')('combined', {
+  stream: {
+    write: (message, encoding) => {
+      logger.info(message);
+    }
+  }
+}));
 
 app.get('/', (req, res) => {
   res.json({
