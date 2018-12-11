@@ -19,7 +19,8 @@
     "start": "node ./bin/www",
     "test": "./node_modules/.bin/mocha ./tests/**",
     "test-jenkins": "MOCHA_FILE=./tmp/jenkins-test-results.xml ./node_modules/.bin/mocha ./tests/** --reporter mocha-junit-reporter",
-    "pm2:start": "node ./node_modules/pm2/bin/pm2 start ./bin/www --name API -i max"
+    "pm2:start": "node ./node_modules/pm2/bin/pm2 start ./bin/www --name API",
+    "pm2:start:cluster": "node ./node_modules/pm2/bin/pm2 start ./bin/www --name API -i max"
   },
   "repository": {
     "type": "git",
