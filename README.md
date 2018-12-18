@@ -1,1 +1,1 @@
-[![Build Status](http://ec2-54-218-76-216.us-west-2.compute.amazonaws.com/buildStatus/icon?job=elastic-beanstalk-node)](http://ec2-54-218-76-216.us-west-2.compute.amazonaws.com/job/elastic-beanstalk-node)
+[![Build Status](https://build.medixnetwork.com/buildStatus/icon?job=elastic-beanstalk-node)](https://build.medixnetwork.com/job/elastic-beanstalk-node/)
